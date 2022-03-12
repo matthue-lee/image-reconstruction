@@ -1,0 +1,238 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>create_matrix</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-10-17"><meta name="DC.source" content="create_matrix.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> shape_mat = create_matrix(x_sz, y_sz)
+
+x = -x_sz/2:x_sz/2;
+y = -y_sz/2:y_sz/2;
+[xx, yy] = meshgrid(x,y);
+
+a = 3;
+
+<span class="keyword">if</span> a == 1
+    u = zeros(size(xx));
+    u((2^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;3^2))=1;
+
+    u1= zeros(size(xx));
+    u1((2^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;3^2))=1;
+
+    u2= zeros(size(xx));
+    u2((4^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;5^2))=1;
+
+    u3= zeros(size(xx));
+    u3((7^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;8^2))=1;
+
+    u4= zeros(size(xx));
+    u4((10^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;11^2))=1;
+
+    u5= zeros(size(xx));
+    u5((13^2&lt;(xx.^2+yy.^2)) &amp; ((xx.^2+yy.^2)&lt;14^2))=1;
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> a == 2
+    u = zeros(size(xx));
+    u = insertShape(u1, <span class="string">'Circle'</span>, [20, 20, 2], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+    u = insertShape(u1, <span class="string">'Rectangle'</span>, [50, 50, 22, 22], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u1= zeros(size(xx));
+    u1 = insertShape(u1, <span class="string">'Circle'</span>, [20, 20, 2], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+    u1 = insertShape(u1, <span class="string">'Rectangle'</span>, [50, 50, 22, 22], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u2= zeros(size(xx));
+    u2 = insertShape(u2, <span class="string">'Circle'</span>, [20, 20, 3], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+    u2 = insertShape(u2, <span class="string">'Rectangle'</span>, [50, 50, 22, 22], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u3= zeros(size(xx));
+    u3 = insertShape(u3, <span class="string">'Circle'</span>, [20, 20, 4], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+    u3 = insertShape(u3, <span class="string">'Rectangle'</span>, [50, 50, 22, 22], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u4= zeros(size(xx));
+    u4 = insertShape(u4, <span class="string">'Circle'</span>, [20, 20, 5], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+    u4 = insertShape(u4, <span class="string">'Rectangle'</span>, [50, 50, 22, 22], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> a == 3
+    u= zeros(size(xx));
+    u = insertShape(u, <span class="string">'Circle'</span>, [100, 100, 1], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u1= zeros(size(xx));
+    u1 = insertShape(u1, <span class="string">'Circle'</span>, [100, 100, 1], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u2= zeros(size(xx));
+    u2 = insertShape(u2, <span class="string">'Circle'</span>, [100, 100, 2], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u3= zeros(size(xx));
+    u3 = insertShape(u3, <span class="string">'Circle'</span>, [100, 100, 2], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+
+    u4= zeros(size(xx));
+    u4 = insertShape(u4, <span class="string">'Circle'</span>, [100, 100, 3], <span class="string">'Color'</span>, <span class="string">'white'</span>);
+<span class="keyword">end</span>
+
+
+shape_mat = zeros(size(xx));
+shape_mat(:,:,1) = u(:,:,1);
+shape_mat(:,:,2) = u1(:,:,1);
+shape_mat(:,:,3) = u2(:,:,1);
+shape_mat(:,:,4) = u3(:,:,1);
+shape_mat(:,:,5) = u4(:,:,1);
+shape_mat(:,:,6) = u4(:,:,1);
+shape_mat(:,:,7) = u3(:,:,1);
+shape_mat(:,:,8) = u2(:,:,1);
+shape_mat(:,:,9) = u1(:,:,1);
+shape_mat(:,:,10) = u(:,:,1);
+</pre><pre class="codeoutput error">Not enough input arguments.
+
+Error in create_matrix (line 3)
+x = -x_sz/2:x_sz/2;
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function shape_mat = create_matrix(x_sz, y_sz)
+
+x = -x_sz/2:x_sz/2;
+y = -y_sz/2:y_sz/2;
+[xx, yy] = meshgrid(x,y);
+
+a = 3;
+
+if a == 1
+    u = zeros(size(xx));
+    u((2^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<3^2))=1;
+    
+    u1= zeros(size(xx));
+    u1((2^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<3^2))=1;
+
+    u2= zeros(size(xx));
+    u2((4^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<5^2))=1;
+
+    u3= zeros(size(xx));
+    u3((7^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<8^2))=1;
+
+    u4= zeros(size(xx));
+    u4((10^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<11^2))=1;
+
+    u5= zeros(size(xx));
+    u5((13^2<(xx.^2+yy.^2)) & ((xx.^2+yy.^2)<14^2))=1;
+end
+
+if a == 2
+    u = zeros(size(xx));
+    u = insertShape(u1, 'Circle', [20, 20, 2], 'Color', 'white');
+    u = insertShape(u1, 'Rectangle', [50, 50, 22, 22], 'Color', 'white');
+    
+    u1= zeros(size(xx));
+    u1 = insertShape(u1, 'Circle', [20, 20, 2], 'Color', 'white');
+    u1 = insertShape(u1, 'Rectangle', [50, 50, 22, 22], 'Color', 'white');
+
+    u2= zeros(size(xx));
+    u2 = insertShape(u2, 'Circle', [20, 20, 3], 'Color', 'white');
+    u2 = insertShape(u2, 'Rectangle', [50, 50, 22, 22], 'Color', 'white');
+
+    u3= zeros(size(xx));
+    u3 = insertShape(u3, 'Circle', [20, 20, 4], 'Color', 'white');
+    u3 = insertShape(u3, 'Rectangle', [50, 50, 22, 22], 'Color', 'white');
+
+    u4= zeros(size(xx));
+    u4 = insertShape(u4, 'Circle', [20, 20, 5], 'Color', 'white');
+    u4 = insertShape(u4, 'Rectangle', [50, 50, 22, 22], 'Color', 'white');
+end
+
+if a == 3
+    u= zeros(size(xx));
+    u = insertShape(u, 'Circle', [100, 100, 1], 'Color', 'white');
+    
+    u1= zeros(size(xx));
+    u1 = insertShape(u1, 'Circle', [100, 100, 1], 'Color', 'white');
+    
+    u2= zeros(size(xx));
+    u2 = insertShape(u2, 'Circle', [100, 100, 2], 'Color', 'white');
+    
+    u3= zeros(size(xx));
+    u3 = insertShape(u3, 'Circle', [100, 100, 2], 'Color', 'white');
+    
+    u4= zeros(size(xx));
+    u4 = insertShape(u4, 'Circle', [100, 100, 3], 'Color', 'white');
+end
+
+
+shape_mat = zeros(size(xx));
+shape_mat(:,:,1) = u(:,:,1);
+shape_mat(:,:,2) = u1(:,:,1);
+shape_mat(:,:,3) = u2(:,:,1);
+shape_mat(:,:,4) = u3(:,:,1);
+shape_mat(:,:,5) = u4(:,:,1);
+shape_mat(:,:,6) = u4(:,:,1);
+shape_mat(:,:,7) = u3(:,:,1);
+shape_mat(:,:,8) = u2(:,:,1);
+shape_mat(:,:,9) = u1(:,:,1);
+shape_mat(:,:,10) = u(:,:,1);
+
+
+
+##### SOURCE END #####
+--></body></html>
